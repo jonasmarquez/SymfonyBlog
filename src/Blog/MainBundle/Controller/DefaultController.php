@@ -8,6 +8,15 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('BlogMainBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('BlogMainBundle:Default:index.html.twig', array(
+          'name' => $name
+        ));
+    }
+
+    public function feedsAction($post)
+    {
+        return $this->render('BlogMainBundle:Default:feeds.html.twig', array(
+          'post' => $post
+        ));
     }
 }

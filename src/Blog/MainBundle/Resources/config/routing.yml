@@ -1,3 +1,7 @@
 blog_main_homepage:
     path:     /hello/{name}
     defaults: { _controller: BlogMainBundle:Default:index }
+
+blog_main_blogFeeds:
+    path:     /blog/{post}
+    defaults: { _controller: BlogMainBundle:Default:feeds }
