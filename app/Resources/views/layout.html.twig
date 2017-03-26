@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+
+{% block title %}Blog{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('bundles/blogmain/css/stylesheets.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+<div id="cabecero_block">
+   {% block cabecero_block %}
+   {% endblock %}
+</div>
+{% endblock %}

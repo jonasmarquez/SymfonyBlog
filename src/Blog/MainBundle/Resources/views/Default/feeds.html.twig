@@ -1,0 +1,9 @@
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+  {% block cabecero_block %}
+    <img src="{{ asset('bundles/blogmain/images/logo.png') }}" width="50px"></img>
+  {% endblock %}
+
+  <p>{{ post }}</p>
+{% endblock %}
