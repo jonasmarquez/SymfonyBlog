@@ -6,6 +6,10 @@ blog_main_feeds:
     path:     /blog
     defaults: { _controller: BlogMainBundle:Feeds:feeds }
 
+blog_main_feeds_detail:
+    path:     /blog/{id}
+    defaults: { _controller: BlogMainBundle:Feeds:getById }
+
 blog_main_new:
     path:     /new
     defaults: { _controller: BlogMainBundle:Feeds:new }
