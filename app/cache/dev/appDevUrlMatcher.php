@@ -127,9 +127,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_homepage')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        // blog_main_blogFeeds
-        if (0 === strpos($pathinfo, '/blog') && preg_match('#^/blog/(?P<post>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_blogFeeds')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\DefaultController::feedsAction',));
+        // blog_main_feeds
+        if ($pathinfo === '/blog') {
+            return array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::feedsAction',  '_route' => 'blog_main_feeds',);
+        }
+
+        if (0 === strpos($pathinfo, '/new')) {
+            // blog_main_new
+            if ($pathinfo === '/new') {
+                return array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::newAction',  '_route' => 'blog_main_new',);
+            }
+
+            // blog_main_newPost
+            if (0 === strpos($pathinfo, '/newPost') && preg_match('#^/newPost(?:/(?P<title>[^/]++)(?:/(?P<content>[^/]++))?)?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_newPost')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::newPostAction',  'title' => 'Test',  'content' => 'Test',));
+            }
+
         }
 
         // homepage

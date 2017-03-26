@@ -79,6 +79,7 @@
   'DoctrineBundle:Collector:explain.html.twig' => 'K:\\DEV\\Symfony\\blog\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
   'BlogMainBundle:Default:index.html.twig' => 'K:\\DEV\\Symfony\\blog\\src\\Blog\\MainBundle/Resources/views/Default/index.html.twig',
   'BlogMainBundle:Default:feeds.html.twig' => 'K:\\DEV\\Symfony\\blog\\src\\Blog\\MainBundle/Resources/views/Default/feeds.html.twig',
+  'BlogMainBundle:Default:newpost.html.twig' => 'K:\\DEV\\Symfony\\blog\\src\\Blog\\MainBundle/Resources/views/Default/newpost.html.twig',
   'AcmeDemoBundle:Demo:contact.html.twig' => 'K:\\DEV\\Symfony\\blog\\src\\Acme\\DemoBundle/Resources/views/Demo/contact.html.twig',
   'AcmeDemoBundle:Demo:hello.html.twig' => 'K:\\DEV\\Symfony\\blog\\src\\Acme\\DemoBundle/Resources/views/Demo/hello.html.twig',
   'AcmeDemoBundle:Demo:index.html.twig' => 'K:\\DEV\\Symfony\\blog\\src\\Acme\\DemoBundle/Resources/views/Demo/index.html.twig',

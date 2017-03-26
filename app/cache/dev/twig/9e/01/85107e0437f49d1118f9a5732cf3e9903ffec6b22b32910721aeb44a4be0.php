@@ -40,11 +40,13 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
         echo "  ";
         $this->displayBlock('cabecero_block', $context, $blocks);
         // line 7
-        echo "
-  <p>";
+        echo "  <h2>MY POSTS:</h2>
+  ";
         // line 8
-        echo twig_escape_filter($this->env, (isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "html", null, true);
-        echo "</p>
+        echo twig_escape_filter($this->env, (isset($context["feeds"]) ? $context["feeds"] : $this->getContext($context, "feeds")), "html", null, true);
+        echo "
+  hola
+
 ";
     }
 
@@ -70,6 +72,6 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
 
     public function getDebugInfo()
     {
-        return array (  55 => 5,  52 => 4,  46 => 8,  43 => 7,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  57 => 5,  54 => 4,  46 => 8,  43 => 7,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

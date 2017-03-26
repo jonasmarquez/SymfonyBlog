@@ -2,6 +2,14 @@ blog_main_homepage:
     path:     /hello/{name}
     defaults: { _controller: BlogMainBundle:Default:index }
 
-blog_main_blogFeeds:
-    path:     /blog/{post}
-    defaults: { _controller: BlogMainBundle:Default:feeds }
+blog_main_feeds:
+    path:     /blog
+    defaults: { _controller: BlogMainBundle:Feeds:feeds }
+
+blog_main_new:
+    path:     /new
+    defaults: { _controller: BlogMainBundle:Feeds:new }
+
+blog_main_newPost:
+    path:     /newPost/{title}/{content}
+    defaults: { _controller: BlogMainBundle:Feeds:newPost, title: Test, content: Test }
