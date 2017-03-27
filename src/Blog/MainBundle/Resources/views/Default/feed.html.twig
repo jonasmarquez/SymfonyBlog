@@ -1,0 +1,33 @@
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+
+
+  {% block cabecero_block %}
+    <img src="{{ asset('bundles/blogmain/images/logo.png') }}"
+
+    width="50px" style="float:left;"></img>
+    <h1>MY WEB BLOG</h1>
+  {% endblock %}
+
+
+
+  {% block post_block %}
+
+
+    {% block post %}
+      <h2>{{ post.postTitle }}</h2>
+      <h5>{{ post.postAutor }}</h5>
+      <p>{{ post.postContent }}</p>
+      <h6>{{ post.postDate }}</h6>
+      <a href="http://localhost:8000/app_dev.php/blog">
+        < Back to Blog</a>
+    {% endblock %}
+
+
+  {% endblock %}
+
+
+
+{% endblock %}
