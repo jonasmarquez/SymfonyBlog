@@ -10,10 +10,22 @@ blog_main_feeds_detail:
     path:     /blog/{id}
     defaults: { _controller: BlogMainBundle:Feeds:getById }
 
-blog_main_new:
+blog_main_feeds_detail_byUser:
+    path:     /blog/{user}
+    defaults: { _controller: BlogMainBundle:Feeds:getByUser }
+
+blog_main_newForm:
     path:     /new
-    defaults: { _controller: BlogMainBundle:Feeds:new }
+    defaults: { _controller: BlogMainBundle:Feeds:newForm }
 
 blog_main_newPost:
-    path:     /newPost/{title}/{content}
-    defaults: { _controller: BlogMainBundle:Feeds:newPost, title: Test, content: Test }
+    path:     /newPost/{user}/{title}/{content}
+    defaults: { _controller: BlogMainBundle:Feeds:newPost, user: jonas, title: Test, content: Test }
+
+blog_main_updatePost:
+    path:     /update/{id}/{title}/{content}
+    defaults: { _controller: BlogMainBundle:Feeds:updatePost }
+
+blog_main_deletePost:
+    path:     /delete/{id}
+    defaults: { _controller: BlogMainBundle:Feeds:deletePost }

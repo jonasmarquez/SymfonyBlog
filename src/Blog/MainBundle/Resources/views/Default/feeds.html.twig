@@ -1,10 +1,42 @@
 {% extends "::layout.html.twig" %}
 
 {% block body %}
-  {% block cabecero_block %}
-    <img src="{{ asset('bundles/blogmain/images/logo.png') }}" width="50px"></img>
+
+
+
+{% block cabecero_block %}
+  <img src="{{ asset('bundles/blogmain/images/logo.png') }}"
+
+  width="50px" style="float:left; margin-right:50px;"></img>
+  <h1>MY WEB BLOG</h1>
+  <hr>
+  <h6><a href="http://localhost:8000/app_dev.php/new">
+    Add new Post</a></h6><hr>
+{% endblock %}
+
+
+
+  {% block posts_block %}
+
+    {% for post in posts %}
+
+      {% block post %}
+        <h2>{{ post.postTitle }}</h2>
+        <h6>{{ post.postDate }} |
+          <a href="http://localhost:8000/app_dev.php/blog/{{post.postUser}}">
+          {{ post.postAutor }}</a></h6>
+        <p>{{ post.postContent }}</p>
+
+        <a href="http://localhost:8000/app_dev.php/delete/{{ post.id }}">
+          Delete x</a> |
+        <a href="http://localhost:8000/app_dev.php/blog/{{ post.id }}">
+          Read more +</a>
+      {% endblock %}
+      <hr>
+    {% endfor %}
+
   {% endblock %}
-  <h2>MY POSTS:</h2>
-  {{ feeds }}
+
+
 
 {% endblock %}

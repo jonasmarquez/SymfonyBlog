@@ -138,19 +138,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_feeds_detail')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::getByIdAction',));
             }
 
+            // blog_main_feeds_detail_byUser
+            if (preg_match('#^/blog/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_feeds_detail_byUser')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::getByUserAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/new')) {
-            // blog_main_new
+            // blog_main_newForm
             if ($pathinfo === '/new') {
-                return array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::newAction',  '_route' => 'blog_main_new',);
+                return array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::newFormAction',  '_route' => 'blog_main_newForm',);
             }
 
             // blog_main_newPost
-            if (0 === strpos($pathinfo, '/newPost') && preg_match('#^/newPost(?:/(?P<title>[^/]++)(?:/(?P<content>[^/]++))?)?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_newPost')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::newPostAction',  'title' => 'Test',  'content' => 'Test',));
+            if (0 === strpos($pathinfo, '/newPost') && preg_match('#^/newPost(?:/(?P<user>[^/]++)(?:/(?P<title>[^/]++)(?:/(?P<content>[^/]++))?)?)?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_newPost')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::newPostAction',  'user' => 'jonas',  'title' => 'Test',  'content' => 'Test',));
             }
 
+        }
+
+        // blog_main_updatePost
+        if (0 === strpos($pathinfo, '/update') && preg_match('#^/update/(?P<id>[^/]++)/(?P<title>[^/]++)/(?P<content>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_updatePost')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::updatePostAction',));
+        }
+
+        // blog_main_deletePost
+        if (0 === strpos($pathinfo, '/delete') && preg_match('#^/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_deletePost')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::deletePostAction',));
         }
 
         // homepage

@@ -20,6 +20,8 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
         $this->blocks = array(
             'body' => array($this, 'block_body'),
             'cabecero_block' => array($this, 'block_cabecero_block'),
+            'posts_block' => array($this, 'block_posts_block'),
+            'post' => array($this, 'block_post'),
         );
     }
 
@@ -37,27 +39,125 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "  ";
-        $this->displayBlock('cabecero_block', $context, $blocks);
-        // line 7
-        echo "  <h2>MY POSTS:</h2>
-  ";
-        // line 8
-        echo twig_escape_filter($this->env, (isset($context["feeds"]) ? $context["feeds"] : $this->getContext($context, "feeds")), "html", null, true);
         echo "
-  hola
+
+
+";
+        // line 7
+        $this->displayBlock('cabecero_block', $context, $blocks);
+        // line 16
+        echo "
+
+
+  ";
+        // line 19
+        $this->displayBlock('posts_block', $context, $blocks);
+        // line 39
+        echo "
+
 
 ";
     }
 
-    // line 4
+    // line 7
     public function block_cabecero_block($context, array $blocks = array())
     {
-        // line 5
-        echo "    <img src=\"";
+        // line 8
+        echo "  <img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/blogmain/images/logo.png"), "html", null, true);
-        echo "\" width=\"50px\"></img>
+        echo "\"
+
+  width=\"50px\" style=\"float:left; margin-right:50px;\"></img>
+  <h1>MY WEB BLOG</h1>
+  <hr>
+  <h6><a href=\"http://localhost:8000/app_dev.php/new\">
+    Add new Post</a></h6><hr>
+";
+    }
+
+    // line 19
+    public function block_posts_block($context, array $blocks = array())
+    {
+        // line 20
+        echo "
+    ";
+        // line 21
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
+            // line 22
+            echo "
+      ";
+            // line 23
+            $this->displayBlock('post', $context, $blocks);
+            // line 35
+            echo "      <hr>
+    ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 37
+        echo "
   ";
+    }
+
+    // line 23
+    public function block_post($context, array $blocks = array())
+    {
+        // line 24
+        echo "        <h2>";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postTitle", array()), "html", null, true);
+        echo "</h2>
+        <h6>";
+        // line 25
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postDate", array()), "html", null, true);
+        echo " |
+          <a href=\"http://localhost:8000/app_dev.php/blog/";
+        // line 26
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postUser", array()), "html", null, true);
+        echo "\">
+          ";
+        // line 27
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postAutor", array()), "html", null, true);
+        echo "</a></h6>
+        <p>";
+        // line 28
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postContent", array()), "html", null, true);
+        echo "</p>
+
+        <a href=\"http://localhost:8000/app_dev.php/delete/";
+        // line 30
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
+        echo "\">
+          Delete x</a> |
+        <a href=\"http://localhost:8000/app_dev.php/blog/";
+        // line 32
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
+        echo "\">
+          Read more +</a>
+      ";
     }
 
     public function getTemplateName()
@@ -72,6 +172,6 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
 
     public function getDebugInfo()
     {
-        return array (  57 => 5,  54 => 4,  46 => 8,  43 => 7,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  157 => 32,  152 => 30,  147 => 28,  143 => 27,  139 => 26,  135 => 25,  130 => 24,  127 => 23,  122 => 37,  107 => 35,  105 => 23,  102 => 22,  85 => 21,  82 => 20,  79 => 19,  66 => 8,  63 => 7,  56 => 39,  54 => 19,  49 => 16,  47 => 7,  42 => 4,  39 => 3,  11 => 1,);
     }
 }

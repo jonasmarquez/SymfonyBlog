@@ -15,17 +15,17 @@ class PostsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('postAutor')
-            ->add('postDate')
-            ->add('postContent', array('required' => true ))
-            ->add('postTitle', array('required' => true ))
-            ->add('postImage')
-            ->add('postStatus', array('required' => true ))
-            ->add('postModified')
-            ->add('postUrl')
-            ->add('postType')
-            ->add('postCategory')
-            ->add('publicar', 'submit')
+            //->add('postAutor')
+            //->add('postDate')
+            ->add('postContent', 'textarea')
+            ->add('postTitle')
+            //->add('postImage')
+            //->add('postStatus')
+            //->add('postModified')
+            //->add('postUrl')
+            //->add('postType')
+            //->add('postCategory')
+            ->add('public', 'submit')
         ;
     }
 

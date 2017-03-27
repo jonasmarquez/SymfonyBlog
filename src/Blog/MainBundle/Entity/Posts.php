@@ -22,16 +22,23 @@ class Posts
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="post_autor", type="bigint")
+     * @ORM\Column(name="post_autor", type="text")
      */
     private $postAutor;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="post_date", type="datetimetz")
+     * @ORM\Column(name="post_user", type="text")
+     */
+    private $postUser;
+
+    /**
+     * @var \string
+     *
+     * @ORM\Column(name="post_date", type="text")
      */
     private $postDate;
 
@@ -123,6 +130,29 @@ class Posts
     public function getPostAutor()
     {
         return $this->postAutor;
+    }
+
+    /**
+     * Set postUser
+     *
+     * @param integer $postUser
+     * @return Posts
+     */
+    public function setPostUser($postUser)
+    {
+        $this->postUser = $postUser;
+
+        return $this;
+    }
+
+    /**
+     * Get postUser
+     *
+     * @return integer
+     */
+    public function getPostUser()
+    {
+        return $this->postUser;
     }
 
     /**

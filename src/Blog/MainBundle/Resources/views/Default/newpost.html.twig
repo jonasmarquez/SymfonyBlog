@@ -4,7 +4,28 @@
   {% block cabecero_block %}
     <img src="{{ asset('bundles/blogmain/images/logo.png') }}" width="50px"></img>
   {% endblock %}
-
+  <h6><a href="http://localhost:8000/app_dev.php/blog">
+    Back to Home</a></h6><hr>
   <h2>Form New Post:</h2>
-  {{ form }}
+  {#{ form(form) }#}
+
+  {{ form_start(form)}}
+    <div class="form_error">{{form_errors(form)}}</div>
+
+    <div class="form_block">
+      <div class="form_error">{{ form_errors(form.postTitle) }}</div>
+      <div class="form_label">{{ form_label(form.postTitle) }}</div>
+      <div class="form_input">{{ form_widget(form.postTitle) }}</div>
+    </div>
+
+    <div class="form_block">
+      <div class="form_error">{{ form_errors(form.postContent) }}</div>
+      <div class="form_label">{{ form_label(form.postContent) }}</div>
+      <div class="form_input">{{ form_widget(form.postContent) }}</div>
+    </div>
+
+    <div class="form_block">
+      {{ form_widget(form.public) }}
+    </div>
+  {{form_end(form)}}
 {% endblock %}
