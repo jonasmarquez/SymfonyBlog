@@ -117,19 +117,19 @@ class FeedsController extends Controller
       }
       $em->remove($post);
       $em->flush();
-
-      return new Response(
+      return $this->redirect($this->generateUrl('blog_main_feeds'));
+      /*return new Response(
         '<h2>Post eliminado con éxito!</h2><br>
         <a href="http://localhost:8000/app_dev.php/blog"> < Back to Blog</a>'
-      );
+      );*/
     }
 
-// Function to INSERT new Post
+// Function to get all Posts ORDER BY ID DESC
     public function feedsAction()
     {
       $em = $this->getDoctrine()->getManager();
-      $posts = $em->getRepository('BlogMainBundle:Posts')->findAll(array(),
-      array('postDate'=>'DESC'));
+      $posts = $em->getRepository('BlogMainBundle:Posts')->findBy(array(),
+      array('id'=>'DESC'));
       return $this->render("BlogMainBundle:Default:feeds.html.twig", array(
         'posts' => $posts
       ));

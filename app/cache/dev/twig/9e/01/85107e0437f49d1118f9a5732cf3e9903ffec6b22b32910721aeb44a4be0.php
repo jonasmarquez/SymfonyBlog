@@ -52,7 +52,7 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
   ";
         // line 19
         $this->displayBlock('posts_block', $context, $blocks);
-        // line 39
+        // line 38
         echo "
 
 
@@ -103,7 +103,7 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
       ";
             // line 23
             $this->displayBlock('post', $context, $blocks);
-            // line 35
+            // line 34
             echo "      <hr>
     ";
             ++$context['loop']['index0'];
@@ -118,7 +118,7 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 36
         echo "
   ";
     }
@@ -142,18 +142,17 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
         // line 27
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postAutor", array()), "html", null, true);
         echo "</a></h6>
-        <p>";
+          <div>";
         // line 28
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postContent", array()), "html", null, true);
-        echo "</p>
-
+        echo $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postContent", array());
+        echo "</div>      
         <a href=\"http://localhost:8000/app_dev.php/delete/";
-        // line 30
+        // line 29
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
         echo "\">
           Delete x</a> |
         <a href=\"http://localhost:8000/app_dev.php/blog/";
-        // line 32
+        // line 31
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
         echo "\">
           Read more +</a>
@@ -172,6 +171,6 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
 
     public function getDebugInfo()
     {
-        return array (  157 => 32,  152 => 30,  147 => 28,  143 => 27,  139 => 26,  135 => 25,  130 => 24,  127 => 23,  122 => 37,  107 => 35,  105 => 23,  102 => 22,  85 => 21,  82 => 20,  79 => 19,  66 => 8,  63 => 7,  56 => 39,  54 => 19,  49 => 16,  47 => 7,  42 => 4,  39 => 3,  11 => 1,);
+        return array (  156 => 31,  151 => 29,  147 => 28,  143 => 27,  139 => 26,  135 => 25,  130 => 24,  127 => 23,  122 => 36,  107 => 34,  105 => 23,  102 => 22,  85 => 21,  82 => 20,  79 => 19,  66 => 8,  63 => 7,  56 => 38,  54 => 19,  49 => 16,  47 => 7,  42 => 4,  39 => 3,  11 => 1,);
     }
 }

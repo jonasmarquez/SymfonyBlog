@@ -4,12 +4,15 @@
 
 
 
-  {% block cabecero_block %}
-    <img src="{{ asset('bundles/blogmain/images/logo.png') }}"
+{% block cabecero_block %}
+  <img src="{{ asset('bundles/blogmain/images/logo.png') }}"
 
-    width="50px" style="float:left;"></img>
-    <h1>MY WEB BLOG</h1>
-  {% endblock %}
+  width="50px" style="float:left; margin-right:50px;"></img>
+  <h1>MY WEB BLOG</h1>
+  <hr>
+  <h6><a href="http://localhost:8000/app_dev.php/new">
+    Add new Post</a></h6><hr>
+{% endblock %}
 
 
 
@@ -19,7 +22,7 @@
     {% block post %}
       <h2>{{ post.postTitle }}</h2>
       <h5>{{ post.postAutor }}</h5>
-      <p>{{ post.postContent }}</p>
+      <p>{{ post.postContent | row }}</p>
       <h6>{{ post.postDate }}</h6>
       <a href="http://localhost:8000/app_dev.php/blog">
         < Back to Blog</a>

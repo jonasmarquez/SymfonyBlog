@@ -17,8 +17,9 @@ class PostsType extends AbstractType
         $builder
             //->add('postAutor')
             //->add('postDate')
-            ->add('postContent', 'textarea')
-            ->add('postTitle')
+            ->add('postContent', 'textarea', array('attr'=>array('cols'=>'100',
+            'rows'=>'20')))
+            ->add('postTitle', 'text', array('attr'=>array('size'=>'100')))
             //->add('postImage')
             //->add('postStatus')
             //->add('postModified')
