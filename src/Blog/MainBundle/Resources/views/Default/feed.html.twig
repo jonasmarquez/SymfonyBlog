@@ -10,8 +10,8 @@
   width="50px" style="float:left; margin-right:50px;"></img>
   <h1>MY WEB BLOG</h1>
   <hr>
-  <h6><a href="http://localhost:8000/app_dev.php/new">
-    Add new Post</a></h6><hr>
+  <h4><a href="http://localhost:8000/app_dev.php/new">
+    Add new Post</a></h4><hr>
 {% endblock %}
 
 
@@ -19,14 +19,25 @@
   {% block post_block %}
 
 
-    {% block post %}
-      <h2>{{ post.postTitle }}</h2>
-      <h5>{{ post.postAutor }}</h5>
-      <p>{{ post.postContent | row }}</p>
-      <h6>{{ post.postDate }}</h6>
-      <a href="http://localhost:8000/app_dev.php/blog">
-        < Back to Blog</a>
-    {% endblock %}
+  {% block post %}
+  <article>
+    <h2>{{ post.postTitle }}</h2>
+    <h4>{{ post.postDate }} |
+      <a href="http://localhost:8000/app_dev.php/blog/{{post.postUser}}">
+      {{ post.postAutor }}</a></h4>
+      {% if post.imageName %}
+        <img src="{{ asset('bundles/blogmain/images/posts/') }}{{ post.imageName }}"
+
+        width="auto" style="margin:1em;"></img>
+      {% endif %}
+      <div>{{ post.postContent | nl2br }}</div>
+  </article>
+  <h4><a href="http://localhost:8000/app_dev.php/blog">
+    < Back to Blog</a> |
+    <a href="http://localhost:8000/app_dev.php/delete/{{ post.id }}">
+      Delete x</a>
+  </h4>
+  {% endblock %}
 
 
   {% endblock %}

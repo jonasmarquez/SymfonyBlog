@@ -41,10 +41,12 @@ class FeedsController extends Controller
 
       $date = date("Y-m-d H:i:s");
       $autor = 'Jonás Márquez';
+      $user = 'jonas';
 
       $post = new Posts();
       $post->setPostDate($date);
       $post->setPostAutor($autor);
+      $post->setPostUser($user);
       // Create form FROM file Blog/MainBundle/Form/PostsType.php
       // if you want to make changes on fields you must to make it there.
       $form = $this->createForm(new PostsType(), $post);
@@ -65,6 +67,7 @@ class FeedsController extends Controller
     {
       $date = date("Y-m-d H:i:s");
       $autor = 'Jonás Márquez';
+      $user = 'jonas';
 
       $post = new Posts();
       $post->setPostUser($user);
@@ -72,6 +75,7 @@ class FeedsController extends Controller
       $post->setPostContent($content);
       $post->setPostDate($date);
       $post->setPostAutor($autor);
+      $post->setPostUser($user);
 
       $em = $this->getDoctrine()->getManager();
       $em->persist($post);

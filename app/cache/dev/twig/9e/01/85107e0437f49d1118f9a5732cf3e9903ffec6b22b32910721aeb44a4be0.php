@@ -52,7 +52,7 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
   ";
         // line 19
         $this->displayBlock('posts_block', $context, $blocks);
-        // line 38
+        // line 48
         echo "
 
 
@@ -70,8 +70,8 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
   width=\"50px\" style=\"float:left; margin-right:50px;\"></img>
   <h1>MY WEB BLOG</h1>
   <hr>
-  <h6><a href=\"http://localhost:8000/app_dev.php/new\">
-    Add new Post</a></h6><hr>
+  <h4><a href=\"http://localhost:8000/app_dev.php/new\">
+    Add new Post</a></h4><hr>
 ";
     }
 
@@ -103,8 +103,10 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
       ";
             // line 23
             $this->displayBlock('post', $context, $blocks);
-            // line 34
-            echo "      <hr>
+            // line 42
+            echo "
+      <hr>
+
     ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -118,7 +120,7 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 46
         echo "
   ";
     }
@@ -127,35 +129,51 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
     public function block_post($context, array $blocks = array())
     {
         // line 24
-        echo "        <h2>";
+        echo "      <article>
+        <h2>";
+        // line 25
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postTitle", array()), "html", null, true);
         echo "</h2>
-        <h6>";
-        // line 25
+        <h4>";
+        // line 26
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postDate", array()), "html", null, true);
         echo " |
           <a href=\"http://localhost:8000/app_dev.php/blog/";
-        // line 26
+        // line 27
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postUser", array()), "html", null, true);
         echo "\">
           ";
-        // line 27
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postAutor", array()), "html", null, true);
-        echo "</a></h6>
-          <div>";
         // line 28
-        echo $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postContent", array());
-        echo "</div>      
-        <a href=\"http://localhost:8000/app_dev.php/delete/";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postAutor", array()), "html", null, true);
+        echo "</a></h4>
+          ";
         // line 29
+        if ($this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "imageName", array())) {
+            // line 30
+            echo "            <img src=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/blogmain/images/posts/"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "imageName", array()), "html", null, true);
+            echo "\"
+
+            width=\"auto\" style=\"margin:1em;\"></img>
+          ";
+        }
+        // line 34
+        echo "          <div>";
+        echo nl2br(twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postContent", array()), "html", null, true));
+        echo "</div>
+      </article>
+      <h4><a href=\"http://localhost:8000/app_dev.php/delete/";
+        // line 36
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
         echo "\">
-          Delete x</a> |
+        Delete x</a> |
         <a href=\"http://localhost:8000/app_dev.php/blog/";
-        // line 31
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
         echo "\">
           Read more +</a>
+      </h4>
       ";
     }
 
@@ -171,6 +189,6 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
 
     public function getDebugInfo()
     {
-        return array (  156 => 31,  151 => 29,  147 => 28,  143 => 27,  139 => 26,  135 => 25,  130 => 24,  127 => 23,  122 => 36,  107 => 34,  105 => 23,  102 => 22,  85 => 21,  82 => 20,  79 => 19,  66 => 8,  63 => 7,  56 => 38,  54 => 19,  49 => 16,  47 => 7,  42 => 4,  39 => 3,  11 => 1,);
+        return array (  173 => 38,  168 => 36,  162 => 34,  153 => 30,  151 => 29,  147 => 28,  143 => 27,  139 => 26,  135 => 25,  132 => 24,  129 => 23,  124 => 46,  107 => 42,  105 => 23,  102 => 22,  85 => 21,  82 => 20,  79 => 19,  66 => 8,  63 => 7,  56 => 48,  54 => 19,  49 => 16,  47 => 7,  42 => 4,  39 => 3,  11 => 1,);
     }
 }

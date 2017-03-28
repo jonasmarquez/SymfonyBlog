@@ -5,6 +5,7 @@ namespace Blog\MainBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class PostsType extends AbstractType
 {
@@ -26,6 +27,7 @@ class PostsType extends AbstractType
             //->add('postUrl')
             //->add('postType')
             //->add('postCategory')
+            ->add('imageFile', 'file', array('required' => false))
             ->add('public', 'submit')
         ;
     }
