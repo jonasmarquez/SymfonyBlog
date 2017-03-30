@@ -1,7 +1,55 @@
 Symfony Blog Version 1.0
 ========================
 
-This is a simple web blog
+@ES
+Este es un web blog simple hecho con Symfony 2.5.10 y MySQL 5.7.
+
+Funciones basicas:
+
+- Inserccion de post con o sin imagen (de momento solo 1 imagen por post).
+- Eliminacion de post.
+- Visualizacion de lista completa de post.
+- Visualizacion individual de post.
+- Estilos CSS previamente cargados (modificalos tu a tu gusto)
+
+Cosas que faltan:
+
+- Carga de datos de registros en un formulario para su posterior edicion.
+- Integracion con algun Framework CSS como Boostrap o Foundation Zurb.
+- Gestion de usuarios y sesiones
+- ETC!
+
+NOTA
+=====
+
+Es de uso libre y gratuito, puedes editarlo modificarlo y practicar todo lo que quieras con el, en caso de ser asi no vendria mal comentar su origen!
+
+Gracias!
+
+@EN
+This is a simple web blog made with Symfony 2.5.10 and MySQL 5.7.
+
+Basic functions:
+
+- Post insertion with or without image (currently only 1 image per post).
+- Elimination of post.
+- Visualization of complete list of post.
+- Individual post display.
+- Previously loaded CSS styles (modify your own)
+
+Missing Things:
+
+- Loading records data into a form for later editing.
+- Integration with some Framework CSS like Boostrap or Foundation Zurb.
+- User and session management
+- ETC!
+
+NOTE
+=====
+
+It is free to use, you can edit it modify it and practice everything you want with it, if it is so it would not hurt to comment on its origin!
+
+Thank you!
 
 
 
