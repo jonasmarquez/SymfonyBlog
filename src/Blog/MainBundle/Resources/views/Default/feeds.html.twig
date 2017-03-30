@@ -5,13 +5,15 @@
 
 
 {% block cabecero_block %}
-  <img src="{{ asset('bundles/blogmain/images/logo.png') }}"
+  <img src="http://placehold.it/350x150?text=LOGO"
 
-  width="50px" style="float:left; margin-right:50px;"></img>
-  <h1>MY WEB BLOG</h1>
+     style="float:left; margin-right:50px;" alt="LOGO"></img>
+  <h1>MY SYMFONY WEB BLOG</h1>
   <hr>
-  <h4><a href="http://localhost:8000/app_dev.php/new">
-    Add new Post</a></h4><hr>
+  <h4><a href="http://localhost:8000/app_dev.php/blog">
+    HOME | </a>
+    <a href="http://localhost:8000/app_dev.php/new">
+      Add new Post +</a></h4><hr>
 {% endblock %}
 
 
@@ -21,17 +23,17 @@
     {% for post in posts %}
 
       {% block post %}
-      <article>
+      <article style="margin-top:3em;">
         <h2>{{ post.postTitle }}</h2>
         <h4>{{ post.postDate }} |
           <a href="http://localhost:8000/app_dev.php/blog/{{post.postUser}}">
           {{ post.postAutor }}</a></h4>
           {% if post.imageName %}
-            <img src="{{ asset('bundles/blogmain/images/posts/') }}{{ post.imageName }}"
+            <img style="float:left" src="{{ asset('bundles/blogmain/images/posts/') }}{{ post.imageName }}"
 
             width="auto" style="margin:1em;"></img>
           {% endif %}
-          <div>{{ post.postContent | nl2br }}</div>
+          <div>{{ post.postContent |raw|nl2br }}</div>
       </article>
       <h4><a href="http://localhost:8000/app_dev.php/delete/{{ post.id }}">
         Delete x</a> |
@@ -44,6 +46,17 @@
 
     {% endfor %}
 
+  {% endblock %}
+
+  {% block footer %}
+    <footer>
+      <h1>FOOTER</h1><hr>
+      <p>Copyleft © - 2017</p>
+      <p>Created by: Jonás Márquez |
+        <a href="https://www.linkedin.com/in/jonasmarquez/">LinkedIn</a> |
+        <a href="https://gitlab.com/jonas.marquez/blog">GitLab</a> |
+        <a href="https://jonasmarquez.me">Personal Blog</a></p>
+    </footer>
   {% endblock %}
 
 

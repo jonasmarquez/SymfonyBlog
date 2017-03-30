@@ -158,14 +158,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // blog_main_updatePost
-        if (0 === strpos($pathinfo, '/update') && preg_match('#^/update/(?P<id>[^/]++)/(?P<title>[^/]++)/(?P<content>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_updatePost')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::updatePostAction',));
+        // blog_main_update
+        if (0 === strpos($pathinfo, '/update') && preg_match('#^/update/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_update')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::updateAction',));
         }
 
-        // blog_main_deletePost
+        // blog_main_delete
         if (0 === strpos($pathinfo, '/delete') && preg_match('#^/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_deletePost')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::deletePostAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_main_delete')), array (  '_controller' => 'Blog\\MainBundle\\Controller\\FeedsController::deleteAction',));
         }
 
         // homepage

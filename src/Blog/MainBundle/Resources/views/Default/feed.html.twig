@@ -5,13 +5,15 @@
 
 
 {% block cabecero_block %}
-  <img src="{{ asset('bundles/blogmain/images/logo.png') }}"
+  <img src="http://placehold.it/350x150?text=LOGO"
 
-  width="50px" style="float:left; margin-right:50px;"></img>
-  <h1>MY WEB BLOG</h1>
+     style="float:left; margin-right:50px;" alt="LOGO"></img>
+  <h1>MY SYMFONY WEB BLOG</h1>
   <hr>
-  <h4><a href="http://localhost:8000/app_dev.php/new">
-    Add new Post</a></h4><hr>
+  <h4><a href="http://localhost:8000/app_dev.php/blog">
+    HOME | </a>
+    <a href="http://localhost:8000/app_dev.php/new">
+      Add new Post +</a></h4><hr>
 {% endblock %}
 
 
@@ -30,7 +32,7 @@
 
         width="auto" style="margin:1em;"></img>
       {% endif %}
-      <div>{{ post.postContent | nl2br }}</div>
+      <div>{{ post.postContent | nl2br | raw }}</div>
   </article>
   <h4><a href="http://localhost:8000/app_dev.php/blog">
     < Back to Blog</a> |

@@ -1,4 +1,11 @@
-Symfony Standard Edition
+Symfony Blog Version 1.0
+========================
+
+This is a simple web blog
+
+
+
+Symfony Standard Edition (Official README.md content)
 ========================
 
 Welcome to the Symfony Standard Edition - a fully-functional Symfony2

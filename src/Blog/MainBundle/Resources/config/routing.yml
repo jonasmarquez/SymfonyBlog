@@ -22,10 +22,10 @@ blog_main_newPost:
     path:     /newPost/{user}/{title}/{content}
     defaults: { _controller: BlogMainBundle:Feeds:newPost, user: jonas, title: Test, content: Test }
 
-blog_main_updatePost:
-    path:     /update/{id}/{title}/{content}
-    defaults: { _controller: BlogMainBundle:Feeds:updatePost }
+blog_main_update:
+    path:     /update/{id}
+    defaults: { _controller: BlogMainBundle:Feeds:update }
 
-blog_main_deletePost:
+blog_main_delete:
     path:     /delete/{id}
-    defaults: { _controller: BlogMainBundle:Feeds:deletePost }
+    defaults: { _controller: BlogMainBundle:Feeds:delete }

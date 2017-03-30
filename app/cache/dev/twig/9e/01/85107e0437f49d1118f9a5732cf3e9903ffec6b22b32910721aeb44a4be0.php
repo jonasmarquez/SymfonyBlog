@@ -22,6 +22,7 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
             'cabecero_block' => array($this, 'block_cabecero_block'),
             'posts_block' => array($this, 'block_posts_block'),
             'post' => array($this, 'block_post'),
+            'footer' => array($this, 'block_footer'),
         );
     }
 
@@ -45,14 +46,19 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
 ";
         // line 7
         $this->displayBlock('cabecero_block', $context, $blocks);
-        // line 16
+        // line 18
         echo "
 
 
   ";
-        // line 19
+        // line 21
         $this->displayBlock('posts_block', $context, $blocks);
-        // line 48
+        // line 50
+        echo "
+  ";
+        // line 51
+        $this->displayBlock('footer', $context, $blocks);
+        // line 61
         echo "
 
 
@@ -63,25 +69,25 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
     public function block_cabecero_block($context, array $blocks = array())
     {
         // line 8
-        echo "  <img src=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/blogmain/images/logo.png"), "html", null, true);
-        echo "\"
+        echo "  <img src=\"http://placehold.it/350x150?text=LOGO\"
 
-  width=\"50px\" style=\"float:left; margin-right:50px;\"></img>
-  <h1>MY WEB BLOG</h1>
+     style=\"float:left; margin-right:50px;\" alt=\"LOGO\"></img>
+  <h1>MY SYMFONY WEB BLOG</h1>
   <hr>
-  <h4><a href=\"http://localhost:8000/app_dev.php/new\">
-    Add new Post</a></h4><hr>
+  <h4><a href=\"http://localhost:8000/app_dev.php/blog\">
+    HOME | </a>
+    <a href=\"http://localhost:8000/app_dev.php/new\">
+      Add new Post +</a></h4><hr>
 ";
     }
 
-    // line 19
+    // line 21
     public function block_posts_block($context, array $blocks = array())
     {
-        // line 20
+        // line 22
         echo "
     ";
-        // line 21
+        // line 23
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["posts"]) ? $context["posts"] : $this->getContext($context, "posts")));
         $context['loop'] = array(
@@ -98,12 +104,12 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
-            // line 22
+            // line 24
             echo "
       ";
-            // line 23
+            // line 25
             $this->displayBlock('post', $context, $blocks);
-            // line 42
+            // line 44
             echo "
       <hr>
 
@@ -120,37 +126,37 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 46
+        // line 48
         echo "
   ";
     }
 
-    // line 23
+    // line 25
     public function block_post($context, array $blocks = array())
     {
-        // line 24
-        echo "      <article>
+        // line 26
+        echo "      <article style=\"margin-top:3em;\">
         <h2>";
-        // line 25
+        // line 27
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postTitle", array()), "html", null, true);
         echo "</h2>
         <h4>";
-        // line 26
+        // line 28
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postDate", array()), "html", null, true);
         echo " |
           <a href=\"http://localhost:8000/app_dev.php/blog/";
-        // line 27
+        // line 29
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postUser", array()), "html", null, true);
         echo "\">
           ";
-        // line 28
+        // line 30
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postAutor", array()), "html", null, true);
         echo "</a></h4>
           ";
-        // line 29
+        // line 31
         if ($this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "imageName", array())) {
-            // line 30
-            echo "            <img src=\"";
+            // line 32
+            echo "            <img style=\"float:left\" src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/blogmain/images/posts/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "imageName", array()), "html", null, true);
             echo "\"
@@ -158,23 +164,38 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
             width=\"auto\" style=\"margin:1em;\"></img>
           ";
         }
-        // line 34
+        // line 36
         echo "          <div>";
-        echo nl2br(twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postContent", array()), "html", null, true));
+        echo nl2br($this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "postContent", array()));
         echo "</div>
       </article>
       <h4><a href=\"http://localhost:8000/app_dev.php/delete/";
-        // line 36
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
         echo "\">
         Delete x</a> |
         <a href=\"http://localhost:8000/app_dev.php/blog/";
-        // line 38
+        // line 40
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : $this->getContext($context, "post")), "id", array()), "html", null, true);
         echo "\">
           Read more +</a>
       </h4>
       ";
+    }
+
+    // line 51
+    public function block_footer($context, array $blocks = array())
+    {
+        // line 52
+        echo "    <footer>
+      <h1>FOOTER</h1><hr>
+      <p>Copyleft © - 2017</p>
+      <p>Created by: Jonás Márquez |
+        <a href=\"https://www.linkedin.com/in/jonasmarquez/\">LinkedIn</a> |
+        <a href=\"https://gitlab.com/jonas.marquez/blog\">GitLab</a> |
+        <a href=\"https://jonasmarquez.me\">Personal Blog</a></p>
+    </footer>
+  ";
     }
 
     public function getTemplateName()
@@ -189,6 +210,6 @@ class __TwigTemplate_9e0185107e0437f49d1118f9a5732cf3e9903ffec6b22b32910721aeb44
 
     public function getDebugInfo()
     {
-        return array (  173 => 38,  168 => 36,  162 => 34,  153 => 30,  151 => 29,  147 => 28,  143 => 27,  139 => 26,  135 => 25,  132 => 24,  129 => 23,  124 => 46,  107 => 42,  105 => 23,  102 => 22,  85 => 21,  82 => 20,  79 => 19,  66 => 8,  63 => 7,  56 => 48,  54 => 19,  49 => 16,  47 => 7,  42 => 4,  39 => 3,  11 => 1,);
+        return array (  190 => 52,  187 => 51,  179 => 40,  174 => 38,  168 => 36,  159 => 32,  157 => 31,  153 => 30,  149 => 29,  145 => 28,  141 => 27,  138 => 26,  135 => 25,  130 => 48,  113 => 44,  111 => 25,  108 => 24,  91 => 23,  88 => 22,  85 => 21,  72 => 8,  69 => 7,  62 => 61,  60 => 51,  57 => 50,  55 => 21,  50 => 18,  48 => 7,  43 => 4,  40 => 3,  11 => 1,);
     }
 }

@@ -1,32 +1,63 @@
 {% extends "::layout.html.twig" %}
 
 {% block body %}
+
   {% block cabecero_block %}
-    <img src="{{ asset('bundles/blogmain/images/logo.png') }}" width="50px"></img>
+    <img src="http://placehold.it/350x150?text=LOGO"
+
+       style="float:left; margin-right:50px;" alt="LOGO"></img>
+    <h1>MY SYMFONY WEB BLOG</h1>
+    <hr>
+    <h4><a href="http://localhost:8000/app_dev.php/blog">
+      HOME | </a>
+      <a href="http://localhost:8000/app_dev.php/new">
+        Add new Post +</a></h4><hr>
   {% endblock %}
-  <h6><a href="http://localhost:8000/app_dev.php/blog">
-    Back to Home</a></h6><hr>
-  <h2>Form New Post:</h2>
+
+  <h2>Form New Post</h2>
   {#{ form(form) }#}
 
   {{ form_start(form)}}
+
     <div class="form_error">{{form_errors(form)}}</div>
 
     <div class="form_block">
-      <div class="form_error">{{ form_errors(form.postTitle) }}</div>
-      <div class="form_label">{{ form_label(form.postTitle) }}</div>
-      <div class="form_input">{{ form_widget(form.postTitle) }}</div>
+      <fieldset>
+        <legend>Title</legend>
+        <div class="form_error">{{ form_errors(form.postTitle) }}</div>
+        <div class="form_label">{{ form_widget(form.postTitle) }}</div>
+        <div class="form_input">{{ form_widget(form.postTitle) }}</div>
+      </fieldset>
     </div>
 
     <div class="form_block">
-      <div class="form_error">{{ form_errors(form.postContent) }}</div>
-      <div class="form_label">{{ form_label(form.postContent) }}</div>
-      <div class="form_input">{{ form_widget(form.postContent) }}</div>
+      <fieldset>
+        <legend>Comment</legend>
+        <div class="form_error">{{ form_errors(form.postContent) }}</div>
+        <div class="form_label">{{ form_widget(form.postContent) }}</div>
+        <div class="form_input">{{ form_widget(form.postContent) }}</div>
+      </fieldset>
     </div>
 
     <div class="form_block">
-      <div>{{ form_widget(form.imageFile) }}</div>
-      <div>{{ form_widget(form.public) }}</div>
+      <fieldset>
+        <legend>Category</legend>
+        <div class="form_error">{{ form_errors(form.postCategory) }}</div>
+        <div class="form_label">{{ form_widget(form.postCategory) }}</div>
+        <div class="form_input">{{ form_widget(form.postCategory) }}</div>
+      </fieldset>
     </div>
+
+    <div class="form_block">
+      <fieldset>
+        <legend>Imagen upload</legend>
+        <div>{{ form_widget(form.imageFile) }}</div>
+      </fieldset>
+      <fieldset>
+        <div>{{ form_widget(form.public) }}</div>
+      </fieldset>
+    </div>
+
   {{form_end(form)}}
+
 {% endblock %}

@@ -1,12 +1,9 @@
 <?php
-
 namespace Blog\MainBundle\Form;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
-
 class PostsType extends AbstractType
 {
     /**
@@ -26,12 +23,11 @@ class PostsType extends AbstractType
             //->add('postModified')
             //->add('postUrl')
             //->add('postType')
-            //->add('postCategory')
+            ->add('postCategory')
             ->add('imageFile', 'file', array('required' => false))
             ->add('public', 'submit')
         ;
     }
-
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -41,7 +37,6 @@ class PostsType extends AbstractType
             'data_class' => 'Blog\MainBundle\Entity\Posts'
         ));
     }
-
     /**
      * @return string
      */

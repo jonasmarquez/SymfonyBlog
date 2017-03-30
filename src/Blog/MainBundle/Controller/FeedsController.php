@@ -11,12 +11,11 @@ use Blog\MainBundle\Form\PostsType;
 class FeedsController extends Controller
 {
 
-// Function Form to INSERT new post
+// Function Form to INSERT new post from FORM
     public function newFormAction(Request $request)
     {
       /*$date = date("Y-m-d H:i:s");
       $autor = 'Jonás Márquez';
-
       $post = new Posts();
       $post->setPostTitle('Title here...');
       $post->setPostContent('Content here...');
@@ -39,6 +38,8 @@ class FeedsController extends Controller
         'form' => $form->createView()
       ));*/
 
+      // Additional Variables
+      // Must be assigned by session control etc...
       $date = date("Y-m-d H:i:s");
       $autor = 'Jonás Márquez';
       $user = 'jonas';
@@ -65,6 +66,8 @@ class FeedsController extends Controller
 // Function to INSERT new Post
     public function newPostAction($user, $title, $content)
     {
+      // Additional Variables
+      // Must be assigned by session control etc...
       $date = date("Y-m-d H:i:s");
       $autor = 'Jonás Márquez';
       $user = 'jonas';
@@ -76,17 +79,16 @@ class FeedsController extends Controller
       $post->setPostDate($date);
       $post->setPostAutor($autor);
       $post->setPostUser($user);
-
       $em = $this->getDoctrine()->getManager();
       $em->persist($post);
       $em->flush();
-
       return new Response(
         'Post añadido con titulo: '.$title.' y ID: '.$post->getId().' en la DB.'
       );
     }
-// Function to INSERT new Post
-    public function updatePostAction($id, $title, $content)
+
+// Function to UPDATE Post
+    public function updateAction($id, $title, $content)
     {
       $em = $this->getDoctrine()->getManager();
       $post = $em->getRepository('BlogMainBundle:Posts')->findOneById($id);
@@ -100,15 +102,15 @@ class FeedsController extends Controller
       $post->setPostTitle($title);
       $post->setPostContent($content);
       $em->flush();
-
       return new Response(
         'Post actualizado con éxito<hr> Titulo: '.$post->getPostTitle().'<br>
         Contenido: '.$post->getPostContent().'<br>
         <a href="http://localhost:8000/app_dev.php/blog"> <- volver</a>'
       );
     }
-// Function to INSERT new Post
-    public function deletePostAction($id)
+
+// Function to DELETE Post
+    public function deleteAction($id)
     {
       $em = $this->getDoctrine()->getManager();
       $post = $em->getRepository('BlogMainBundle:Posts')->findOneById($id);
@@ -159,12 +161,5 @@ class FeedsController extends Controller
       ));
     }
 
-
-
-
-
-
-
-
-
+// END OF CLASS
 }
