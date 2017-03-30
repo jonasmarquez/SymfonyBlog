@@ -1,7 +1,8 @@
 Symfony Blog Version 1.0
 ========================
 
-@ES
+**@ES**
+
 Este es un web blog simple hecho con Symfony 2.5.10 y MySQL 5.7.
 
 Funciones basicas:
@@ -26,7 +27,8 @@ Es de uso libre y gratuito, puedes editarlo modificarlo y practicar todo lo que 
 
 Gracias!
 
-@EN
+**@EN**
+
 This is a simple web blog made with Symfony 2.5.10 and MySQL 5.7.
 
 Basic functions:
