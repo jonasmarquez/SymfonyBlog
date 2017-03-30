@@ -5,35 +5,30 @@ body{
     background-color: #FFFFFF;
 }
 
-ul{
-	list-style: none;
+#navbar ul{
+
+  height: 50px;
+  width: auto;
+  display: block;
+  list-style: none;
 }
 
-li{
-    cursor: pointer;
+#navbar li{
+  display: inline-block;
+  padding: 1em;
+  background-color: DarkSeaGreen ;
+  list-style: none;
+  cursor: pointer;
 }
 
-
-#dos_cols{
-    width: 100%;
-    height: 500px;
-    margin-bottom: 20px;
+#navbar li a{
+  text-decoration: none;
+  font-weight: bold;
+  height: 50px;
 }
 
-#ciudades_block{
-    width: 19%;
-    height: 100%;
-    float: left;
-    background-color: #e3bbac;
-    padding-left: 1%;
-}
-
-#productos_block{
-    width: 77%;
-    height: 100%;
-    float: right;
-    background-color: #eed6cd;
-    padding-left: 1%;
+#navbar li:hover{
+  background-color: #CCC;
 }
 
 .form_error{

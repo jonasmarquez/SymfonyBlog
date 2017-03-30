@@ -14,9 +14,13 @@ class FeedsController extends Controller
 // Function Form to INSERT new post from FORM
     public function newFormAction(Request $request)
     {
-      /*$date = date("Y-m-d H:i:s");
+      /*
+      // Additional Variables
+      // Must be assigned by session control etc...
+      $date = date("Y-m-d H:i:s");
       $autor = 'Jonás Márquez';
       $post = new Posts();
+
       $post->setPostTitle('Title here...');
       $post->setPostContent('Content here...');
       $form = $this->createFormBuilder($post)
@@ -92,20 +96,20 @@ class FeedsController extends Controller
     {
       $em = $this->getDoctrine()->getManager();
       $post = $em->getRepository('BlogMainBundle:Posts')->findOneById($id);
-      // Excepcion en caso de no conseguir el Post con dicho ID
+      // Exception in case of dont find any Post with these ID
       if (!$post) {
         throw $this->createNotFoundException(
-          'No se ha encontrado el Post con ID: '.$id.'<br>
-          <a href="localhost:8000/app_dev.php/blog><- Volver</a>"'
+          'Sorry! we can not find the Post with ID: '.$id.'<br>
+          <a href="localhost:8000/app_dev.php/blog><- Back!</a>"'
         );
       }
       $post->setPostTitle($title);
       $post->setPostContent($content);
       $em->flush();
       return new Response(
-        'Post actualizado con éxito<hr> Titulo: '.$post->getPostTitle().'<br>
-        Contenido: '.$post->getPostContent().'<br>
-        <a href="http://localhost:8000/app_dev.php/blog"> <- volver</a>'
+        'Post updated successfully!<hr> Title: '.$post->getPostTitle().'<br>
+        Content: '.$post->getPostContent().'<br>
+        <a href="http://localhost:8000/app_dev.php/blog"> <- Back!</a>'
       );
     }
 
@@ -114,11 +118,11 @@ class FeedsController extends Controller
     {
       $em = $this->getDoctrine()->getManager();
       $post = $em->getRepository('BlogMainBundle:Posts')->findOneById($id);
-      // Excepcion en caso de no conseguir el Post con dicho ID
+      // Exception in case of dont find any Post with these ID
       if (!$post) {
         throw $this->createNotFoundException(
-          'No se ha encontrado el Post con ID: '.$id.'<br>
-          <a href="localhost:8000/app_dev.php/blog><- Volver</a>"'
+          'Sorry! we can not find the Post with ID: '.$id.'<br>
+          <a href="localhost:8000/app_dev.php/blog><- Back!</a>"'
         );
       }
       $em->remove($post);

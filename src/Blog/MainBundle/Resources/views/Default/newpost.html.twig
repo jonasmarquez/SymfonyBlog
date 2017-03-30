@@ -2,17 +2,20 @@
 
 {% block body %}
 
-  {% block cabecero_block %}
-    <img src="http://placehold.it/350x150?text=LOGO"
+{% block cabecero_block %}
+  <img src="http://placehold.it/350x150?text=LOGO"
 
-       style="float:left; margin-right:50px;" alt="LOGO"></img>
-    <h1>MY SYMFONY WEB BLOG</h1>
-    <hr>
-    <h4><a href="http://localhost:8000/app_dev.php/blog">
-      HOME | </a>
-      <a href="http://localhost:8000/app_dev.php/new">
-        Add new Post +</a></h4><hr>
-  {% endblock %}
+     style="float:left; margin-right:50px;" alt="LOGO"></img>
+  <h1>MY SYMFONY WEB BLOG</h1>
+
+  <div  id="navbar">
+    <ul>
+      <li><a href="http://localhost:8000/app_dev.php/blog">HOME</a></li>
+      <li><a href="http://localhost:8000/app_dev.php/new">Add new Post +</a></li>
+    </ul>
+  </div>
+<hr>
+{% endblock %}
 
   <h2>Form New Post</h2>
   {#{ form(form) }#}

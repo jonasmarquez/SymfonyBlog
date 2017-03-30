@@ -9,11 +9,14 @@
 
      style="float:left; margin-right:50px;" alt="LOGO"></img>
   <h1>MY SYMFONY WEB BLOG</h1>
-  <hr>
-  <h4><a href="http://localhost:8000/app_dev.php/blog">
-    HOME | </a>
-    <a href="http://localhost:8000/app_dev.php/new">
-      Add new Post +</a></h4><hr>
+
+  <div  id="navbar">
+    <ul>
+      <li><a href="http://localhost:8000/app_dev.php/blog">HOME</a></li>
+      <li><a href="http://localhost:8000/app_dev.php/new">Add new Post +</a></li>
+    </ul>
+  </div>
+<hr>
 {% endblock %}
 
 
@@ -51,11 +54,11 @@
   {% block footer %}
     <footer>
       <h1>FOOTER</h1><hr>
-      <p>Copyleft © - 2017</p>
-      <p>Created by: Jonás Márquez |
+      <p><strong>Copyleft © 2017</strong></p>
+      <p><strong>Created by: Jonás Márquez |
         <a href="https://www.linkedin.com/in/jonasmarquez/">LinkedIn</a> |
         <a href="https://gitlab.com/jonas.marquez/blog">GitLab</a> |
-        <a href="https://jonasmarquez.me">Personal Blog</a></p>
+        <a href="https://jonasmarquez.me">Personal Blog</a></strong></p>
     </footer>
   {% endblock %}
 
