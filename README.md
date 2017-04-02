@@ -125,4 +125,4 @@ Enjoy!
 [12]: http://symfony.com/doc/2.5/cookbook/assetic/asset_management.html
 [13]: http://symfony.com/doc/2.5/bundles/SensioGeneratorBundle/index.html
 
-TEST JENKINS BUILD
+JENKINS BUILD TEST
